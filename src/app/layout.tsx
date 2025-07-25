@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "smiledust",
-  description: "The periodic table of my web apps",
+  title: "JS Sandbox",
+  description: "Code in JS right in your browser",
 };
 
 export default function RootLayout({
