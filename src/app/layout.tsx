@@ -1,17 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "JS Sandbox",
@@ -26,24 +15,58 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white flex flex-col min-h-screen`}
+        style={{
+          margin: 0,
+          padding: 0,
+          fontFamily: `'Segoe UI', Roboto, Helvetica, Arial, sans-serif`,
+          backgroundColor: "#000",
+          color: "#fff",
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          position: "relative",
+        }}
       >
-        {/* Header */}
-        <header className="w-full flex justify-between items-center px-6 py-4 shadow-md bg-black">
-          <Link
-            href="/"
-            className="text-3xl text-pink-500 smiledust-font hover:text-pink-400 transition"
-          >
-            smiledust
-          </Link>
-        </header>
+        {/* Smiledust Logo — absolute top-left */}
+        <Link
+          href="https://smiledust.com"
+          style={{
+            position: "absolute",
+            top: "1rem",
+            left: "1rem",
+            textDecoration: "none",
+            color: "#ec4899",
+            fontSize: "1.5rem",
+            fontWeight: "bold",
+            fontFamily: `'Pacifico', cursive`,
+            zIndex: 1000,
+          }}
+          className="smiledust-font"
+        >
+          smiledust
+        </Link>
 
-        {/* Main content */}
-        <main className="flex-grow w-full">{children}</main>
+        {/* Main Content */}
+        <main
+          style={{
+            flex: 1,
+            paddingTop: "5rem", // increased space from top
+          }}
+        >
+          {children}
+        </main>
 
         {/* Footer */}
-        <footer className="w-full text-center text-sm text-gray-500 py-4 bg-black">
-          © 2025 smiledust
+        <footer
+          style={{
+            backgroundColor: "#000", // same as rest of site
+            textAlign: "center",
+            padding: "0.5rem",
+            fontSize: "0.9rem",
+            color: "#888",
+          }}
+        >
+          © {new Date().getFullYear()} smiledust
         </footer>
       </body>
     </html>
