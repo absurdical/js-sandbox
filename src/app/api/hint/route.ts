@@ -32,7 +32,7 @@ Give them a concise, clear explanation or a helpful hint.
 
     const reply = chatCompletion.choices[0]?.message?.content || "Sorry, I couldn’t generate a helpful hint.";
     return NextResponse.json({ answer: reply });
-  } catch (error: any) {
+  } catch (error) {
     console.error("OpenAI Error:", error);
     return NextResponse.json({ error: "Failed to fetch hint" }, { status: 500 });
   }

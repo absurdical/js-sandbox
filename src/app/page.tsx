@@ -21,7 +21,7 @@ export default function Home() {
 
 export default App;`;
 
-  const [code, setCode] = useState(initialCode);
+  const [code] = useState(initialCode);
 
   const handleAsk = async () => {
     if (!chatInput.trim()) return;
